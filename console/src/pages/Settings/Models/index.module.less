@@ -1,0 +1,671 @@
+.settingsPage {
+  padding: 24px;
+}
+
+.loading {
+  text-align: center;
+  padding: 60px;
+}
+
+.loadingText {
+  color: #999;
+}
+
+/* ---- Sections ---- */
+
+.section {
+  margin-bottom: 32px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  margin-bottom: 4px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.sectionDesc {
+  margin: 0 0 24px;
+  color: #999;
+  font-size: 14px;
+}
+
+/* ---- Providers Block (LLM below, providers below) ---- */
+
+.providersBlock {
+  margin-top: 32px;
+}
+
+/* ---- Provider Groups ---- */
+
+.providerGroup {
+  margin-bottom: 24px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.providerGroupTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  margin: 0 0 12px;
+  letter-spacing: 0.02em;
+}
+
+/* ---- Provider Cards ---- */
+
+.providerCards {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.providerCard {
+  flex: 1 1 calc(33.333% - 16px);
+  min-width: 432px;
+  border-radius: 16px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+
+  &.enabledCard {
+    border: 2px solid #615ced !important;
+    box-shadow: rgba(97, 92, 237, 0.2) 0px 8px 24px !important;
+  }
+
+  &.hover {
+    border: 1px solid #615ced;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  &.normal {
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  :global(.ant-card-body) {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+  }
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .statusText {
+    font-size: 12px;
+    font-weight: 500;
+
+    &.enabled {
+      color: #52c41a;
+    }
+
+    &.partial {
+      color: #faad14;
+    }
+
+    &.disabled {
+      color: #999;
+    }
+  }
+}
+
+.cardBody {
+  padding: 20px 24px;
+}
+
+.cardHeader {
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  :global {
+    .ant-badge-status-success .ant-badge-status-text {
+      color: #52c41a !important;
+    }
+
+    .ant-badge-status-error .ant-badge-status-text {
+      color: #ff4d4f !important;
+    }
+  }
+}
+
+.cardName {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  min-height: 66px;
+}
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #666;
+}
+
+.infoLabel {
+  color: #999;
+  min-width: 70px;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+
+.infoValue {
+  color: #333;
+  font-family: "SF Mono", "Menlo", monospace;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+  max-width: calc(100% - 80px);
+  text-align: left;
+}
+
+.infoEmpty {
+  color: #ccc;
+  font-style: italic;
+}
+
+.cardActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.configBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 14px;
+  color: #555;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ---- Modal Footer ---- */
+
+.modalFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalFooterLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modalFooterRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.advancedConfigSection {
+  margin-top: 4px;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 16px;
+}
+
+.advancedConfigToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  background: transparent;
+  padding: 0 0 12px;
+  cursor: pointer;
+  color: #333;
+}
+
+.advancedConfigToggleLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.jsonEditorContainer {
+  position: relative;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fafbfc;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:focus-within {
+    border-color: #615ced;
+    box-shadow: 0 0 0 2px rgba(97, 92, 237, 0.12);
+  }
+}
+
+.jsonEditorHighlight,
+.jsonEditorTextarea {
+  margin: 0;
+  padding: 12px 14px;
+  min-height: 180px;
+  font-family: Monaco, "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  tab-size: 2;
+}
+
+.jsonEditorHighlight {
+  color: #6b7280;
+  pointer-events: none;
+  overflow: auto;
+}
+
+.jsonEditorTextarea {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  resize: vertical;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: transparent;
+  caret-color: #1f2328;
+  overflow: auto;
+  -webkit-text-fill-color: transparent;
+
+  &::placeholder {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.jsonEditorTokenKey {
+  color: #8b5cf6;
+}
+
+.jsonEditorTokenString {
+  color: #16a34a;
+}
+
+.jsonEditorTokenNumber {
+  color: #2563eb;
+}
+
+.jsonEditorTokenBoolean {
+  color: #ea580c;
+}
+
+.jsonEditorTokenNull {
+  color: #dc2626;
+}
+
+.jsonEditorTokenPunctuation {
+  color: #6b7280;
+}
+
+/* ---- Model Slot Sections ---- */
+
+.slotSection {
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border-color: #d9d9d9;
+  }
+}
+
+.slotHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.slotTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.slotCurrent {
+  font-size: 13px;
+  color: #52c41a;
+  font-family: "SF Mono", "Menlo", monospace;
+  background: #f6ffed;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid #b7eb8f;
+}
+
+.slotForm {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+}
+
+.slotField {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 200px;
+
+  @media (max-width: 768px) {
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+.slotLabel {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.slotActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* ---- Section Header Row (title + button) ---- */
+
+.sectionHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 0;
+
+  .section {
+    flex: 1;
+    margin-bottom: 0;
+  }
+}
+
+.addProviderBtn {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* ---- Model Management Modal ---- */
+
+.modelList {
+  max-height: 360px;
+  overflow-y: auto;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.modelListEmpty {
+  padding: 24px;
+  text-align: center;
+  color: #999;
+  font-size: 13px;
+}
+
+.modelListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid #f5f5f5;
+  transition: background 0.15s;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: #fafafa;
+  }
+}
+
+.modelListItemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.modelListItemName {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.modelListItemId {
+  font-size: 12px;
+  color: #999;
+  font-family: "SF Mono", "Menlo", monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.modelListItemActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.modelAddForm {
+  margin-top: 12px;
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 8px;
+  border: 1px dashed #d9d9d9;
+}
+
+/* ─── Dark mode ─────────────────────────────────────────────────────────────── */
+:global(.dark-mode) {
+  .loadingText {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .sectionDesc {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .providerGroupTitle {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* Provider card */
+  .providerCard {
+    background: #2a2a2a;
+
+    &.normal {
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    &.hover {
+      border-color: #615ced !important;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4) !important;
+    }
+  }
+
+  .cardName {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .infoRow {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .infoLabel {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .infoValue {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .infoEmpty {
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .cardActions {
+    border-top-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .configBtn {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .statusContainer .statusText.disabled {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* Slot section (LLM 顶部选择区) */
+  .slotSection {
+    background: #2a2a2a;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  .slotHeader {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .slotTitle {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .slotCurrent {
+    color: #52c41a;
+    background: rgba(82, 196, 26, 0.1);
+    border-color: rgba(82, 196, 26, 0.3);
+  }
+
+  .slotLabel {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .slotActions {
+    border-top-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Advanced config */
+  .advancedConfigSection {
+    border-top-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .advancedConfigToggle {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* JSON editor */
+  .jsonEditorContainer {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: #1a1a1a;
+
+    &:focus-within {
+      border-color: #615ced;
+    }
+  }
+
+  .jsonEditorHighlight {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .jsonEditorTextarea {
+    caret-color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* Model list (modal) */
+  .modelList {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .modelListEmpty {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .modelListItem {
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+  }
+
+  .modelListItemName {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .modelListItemId {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .modelAddForm {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+}

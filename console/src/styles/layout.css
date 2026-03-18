@@ -1,0 +1,739 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Dark mode global token overrides ─────────────────────────────────────── */
+html.dark-mode {
+  color-scheme: dark;
+}
+
+html.dark-mode body {
+  background: #141414;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Ant Design layout background in dark mode */
+html.dark-mode .ant-layout,
+html.dark-mode .tqclaw-layout {
+  background: #141414 !important;
+}
+
+html.dark-mode .ant-layout-content,
+html.dark-mode .tqclaw-layout-content {
+  background: #141414 !important;
+}
+
+/* Page content area background */
+html.dark-mode .page-content {
+  background: #141414;
+}
+
+/* Card components — @agentscope-ai/design uses tqclaw prefix */
+html.dark-mode .tqclaw-card,
+html.dark-mode .ant-card {
+  background: #1f1f1f !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-card-head,
+html.dark-mode .ant-card-head {
+  background: #1f1f1f !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-card-head-title,
+html.dark-mode .ant-card-head-title {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* @agentscope-ai/design Card custom title (sparkPrefix-title inside card-wrapper) */
+html.dark-mode .tqclaw-card-wrapper .tqclaw-title,
+html.dark-mode .tqclaw-spark-title {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-card-wrapper .tqclaw-info,
+html.dark-mode .tqclaw-spark-info {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+html.dark-mode .tqclaw-card-body,
+html.dark-mode .ant-card-body {
+  background: #1f1f1f !important;
+}
+
+/* Table components */
+html.dark-mode .tqclaw-table,
+html.dark-mode .ant-table {
+  background: #1f1f1f !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-table-wrapper,
+html.dark-mode .ant-table-wrapper {
+  background: #1f1f1f !important;
+}
+
+html.dark-mode .tqclaw-table-thead > tr > th,
+html.dark-mode .ant-table-thead > tr > th,
+html.dark-mode .tqclaw-table-thead > tr > td,
+html.dark-mode .ant-table-thead > tr > td {
+  background: #262626 !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark-mode .tqclaw-table-tbody > tr > td,
+html.dark-mode .ant-table-tbody > tr > td {
+  background: #1f1f1f !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+html.dark-mode .tqclaw-table-tbody > tr:hover > td,
+html.dark-mode .ant-table-tbody > tr:hover > td {
+  background: #2a2a2a !important;
+}
+
+html.dark-mode .tqclaw-table-tbody > tr.tqclaw-table-row-selected > td,
+html.dark-mode .ant-table-tbody > tr.ant-table-row-selected > td {
+  background: rgba(97, 92, 237, 0.12) !important;
+}
+
+/* Table fixed columns shadow in dark mode */
+html.dark-mode .tqclaw-table-cell-fix-right,
+html.dark-mode .ant-table-cell-fix-right {
+  background: #1f1f1f !important;
+}
+
+html.dark-mode .tqclaw-table-cell-fix-right-first::after,
+html.dark-mode .ant-table-cell-fix-right-first::after {
+  box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Table pagination */
+html.dark-mode .tqclaw-pagination .tqclaw-pagination-item,
+html.dark-mode .ant-pagination .ant-pagination-item {
+  background: #1f1f1f !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.dark-mode .tqclaw-pagination .tqclaw-pagination-item a,
+html.dark-mode .ant-pagination .ant-pagination-item a {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+html.dark-mode .tqclaw-pagination .tqclaw-pagination-item-active,
+html.dark-mode .ant-pagination .ant-pagination-item-active {
+  background: #615ced !important;
+  border-color: #615ced !important;
+}
+
+html.dark-mode .tqclaw-pagination .tqclaw-pagination-item-active a,
+html.dark-mode .ant-pagination .ant-pagination-item-active a {
+  color: #fff !important;
+}
+
+html.dark-mode .tqclaw-pagination .tqclaw-pagination-prev button,
+html.dark-mode .tqclaw-pagination .tqclaw-pagination-next button,
+html.dark-mode .ant-pagination .ant-pagination-prev button,
+html.dark-mode .ant-pagination .ant-pagination-next button {
+  background: #1f1f1f !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* Table sorter icons */
+html.dark-mode .tqclaw-table-column-sorter,
+html.dark-mode .ant-table-column-sorter {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+html.dark-mode .tqclaw-table-column-sorter-up.active,
+html.dark-mode .tqclaw-table-column-sorter-down.active,
+html.dark-mode .ant-table-column-sorter-up.active,
+html.dark-mode .ant-table-column-sorter-down.active {
+  color: #8b87f0 !important;
+}
+
+/* Checkbox in table */
+html.dark-mode .tqclaw-checkbox-inner,
+html.dark-mode .ant-checkbox-inner {
+  background: #2a2a2a !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+html.dark-mode .tqclaw-checkbox-checked .tqclaw-checkbox-inner,
+html.dark-mode .ant-checkbox-checked .ant-checkbox-inner {
+  background: #615ced !important;
+  border-color: #615ced !important;
+}
+
+/* Page titles (h1) */
+html.dark-mode h1,
+html.dark-mode h2,
+html.dark-mode h3 {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Input / Textarea */
+html.dark-mode .tqclaw-input,
+html.dark-mode .ant-input {
+  background: #2a2a2a !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Disabled input */
+html.dark-mode .tqclaw-input[disabled],
+html.dark-mode .ant-input[disabled],
+html.dark-mode .tqclaw-input-disabled,
+html.dark-mode .ant-input-disabled {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  cursor: not-allowed;
+}
+
+/* Disabled InputNumber */
+html.dark-mode .tqclaw-input-number-disabled,
+html.dark-mode .ant-input-number-disabled,
+html.dark-mode .tqclaw-input-number-disabled .tqclaw-input-number-input,
+html.dark-mode .ant-input-number-disabled .ant-input-number-input {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+html.dark-mode .tqclaw-input::placeholder,
+html.dark-mode .ant-input::placeholder {
+  color: rgba(255, 255, 255, 0.25) !important;
+}
+
+html.dark-mode .tqclaw-input-affix-wrapper,
+html.dark-mode .ant-input-affix-wrapper {
+  background: #2a2a2a !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Select */
+html.dark-mode .tqclaw-select-selector,
+html.dark-mode .ant-select-selector {
+  background: #2a2a2a !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-select-selection-placeholder,
+html.dark-mode .ant-select-selection-placeholder {
+  color: rgba(255, 255, 255, 0.25) !important;
+}
+
+html.dark-mode .tqclaw-select-arrow,
+html.dark-mode .ant-select-arrow {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Select dropdown */
+html.dark-mode .tqclaw-select-dropdown,
+html.dark-mode .ant-select-dropdown {
+  background: #1f1f1f !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.dark-mode .tqclaw-select-item,
+html.dark-mode .ant-select-item {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-select-item-option-active,
+html.dark-mode .ant-select-item-option-active {
+  background: rgba(97, 92, 237, 0.12) !important;
+}
+
+html.dark-mode .tqclaw-select-item-option-selected,
+html.dark-mode .ant-select-item-option-selected {
+  background: rgba(97, 92, 237, 0.2) !important;
+  color: #8b87f0 !important;
+}
+
+/* Form labels */
+html.dark-mode .tqclaw-form-item-label > label,
+html.dark-mode .ant-form-item-label > label {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+html.dark-mode .tqclaw-form-item-required::before,
+html.dark-mode .ant-form-item-required::before {
+  color: #ff4d4f !important;
+}
+
+/* InputNumber */
+html.dark-mode .tqclaw-input-number,
+html.dark-mode .ant-input-number {
+  background: #2a2a2a !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-input-number-input,
+html.dark-mode .ant-input-number-input {
+  background: #2a2a2a !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-input-number-handler-wrap,
+html.dark-mode .ant-input-number-handler-wrap {
+  background: #2a2a2a !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.dark-mode .tqclaw-input-number-handler,
+html.dark-mode .ant-input-number-handler {
+  color: rgba(255, 255, 255, 0.45) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* TimePicker */
+html.dark-mode .tqclaw-picker,
+html.dark-mode .ant-picker {
+  background: #2a2a2a !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-picker-input > input,
+html.dark-mode .ant-picker-input > input {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-picker-suffix,
+html.dark-mode .ant-picker-suffix {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+html.dark-mode .tqclaw-picker-dropdown,
+html.dark-mode .ant-picker-dropdown {
+  background: #1f1f1f !important;
+}
+
+html.dark-mode .tqclaw-picker-panel,
+html.dark-mode .ant-picker-panel {
+  background: #1f1f1f !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.dark-mode .tqclaw-picker-time-panel-cell-inner,
+html.dark-mode .ant-picker-time-panel-cell-inner {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode
+  .tqclaw-picker-time-panel-cell-selected
+  .tqclaw-picker-time-panel-cell-inner,
+html.dark-mode
+  .ant-picker-time-panel-cell-selected
+  .ant-picker-time-panel-cell-inner {
+  background: rgba(97, 92, 237, 0.2) !important;
+  color: #8b87f0 !important;
+}
+
+/* DatePicker / RangePicker calendar panel */
+html.dark-mode .tqclaw-picker-dropdown,
+html.dark-mode .ant-picker-dropdown {
+  background: transparent !important;
+}
+
+html.dark-mode .tqclaw-picker-panel-container,
+html.dark-mode .ant-picker-panel-container {
+  background: #1f1f1f !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Header (month/year nav) */
+html.dark-mode .tqclaw-picker-header,
+html.dark-mode .ant-picker-header {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-picker-header-view button,
+html.dark-mode .ant-picker-header-view button,
+html.dark-mode .tqclaw-picker-prev-icon,
+html.dark-mode .tqclaw-picker-next-icon,
+html.dark-mode .tqclaw-picker-super-prev-icon,
+html.dark-mode .tqclaw-picker-super-next-icon,
+html.dark-mode .ant-picker-prev-icon,
+html.dark-mode .ant-picker-next-icon,
+html.dark-mode .ant-picker-super-prev-icon,
+html.dark-mode .ant-picker-super-next-icon {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+html.dark-mode .tqclaw-picker-header button:hover,
+html.dark-mode .ant-picker-header button:hover {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Week day labels (Su Mo Tu ...) */
+html.dark-mode .tqclaw-picker-content th,
+html.dark-mode .ant-picker-content th {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Normal date cells */
+html.dark-mode .tqclaw-picker-cell .tqclaw-picker-cell-inner,
+html.dark-mode .ant-picker-cell .ant-picker-cell-inner {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+html.dark-mode .tqclaw-picker-cell:hover .tqclaw-picker-cell-inner,
+html.dark-mode .ant-picker-cell:hover .ant-picker-cell-inner {
+  background: rgba(97, 92, 237, 0.2) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Outside-month cells */
+html.dark-mode .tqclaw-picker-cell-disabled .tqclaw-picker-cell-inner,
+html.dark-mode .ant-picker-cell-disabled .ant-picker-cell-inner,
+html.dark-mode .tqclaw-picker-cell-disabled,
+html.dark-mode .ant-picker-cell-disabled {
+  color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Today marker */
+html.dark-mode .tqclaw-picker-cell-today .tqclaw-picker-cell-inner::before,
+html.dark-mode .ant-picker-cell-today .ant-picker-cell-inner::before {
+  border-color: #615ced !important;
+}
+
+/* Selected start/end cell */
+html.dark-mode .tqclaw-picker-cell-selected .tqclaw-picker-cell-inner,
+html.dark-mode .ant-picker-cell-selected .ant-picker-cell-inner,
+html.dark-mode .tqclaw-picker-cell-range-start .tqclaw-picker-cell-inner,
+html.dark-mode .ant-picker-cell-range-start .ant-picker-cell-inner,
+html.dark-mode .tqclaw-picker-cell-range-end .tqclaw-picker-cell-inner,
+html.dark-mode .ant-picker-cell-range-end .ant-picker-cell-inner {
+  background: #615ced !important;
+  color: #fff !important;
+}
+
+/* Range in-between cells */
+html.dark-mode .tqclaw-picker-cell-in-range::before,
+html.dark-mode .ant-picker-cell-in-range::before {
+  background: rgba(97, 92, 237, 0.15) !important;
+}
+
+html.dark-mode .tqclaw-picker-cell-in-range .tqclaw-picker-cell-inner,
+html.dark-mode .ant-picker-cell-in-range .ant-picker-cell-inner {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Range hover preview */
+html.dark-mode .tqclaw-picker-cell-in-view.tqclaw-picker-cell-range-hover::before,
+html.dark-mode .ant-picker-cell-in-view.ant-picker-cell-range-hover::before,
+html.dark-mode
+  .tqclaw-picker-cell-in-view.tqclaw-picker-cell-range-hover-start::after,
+html.dark-mode
+  .ant-picker-cell-in-view.ant-picker-cell-range-hover-start::after,
+html.dark-mode
+  .tqclaw-picker-cell-in-view.tqclaw-picker-cell-range-hover-end::after,
+html.dark-mode .ant-picker-cell-in-view.ant-picker-cell-range-hover-end::after {
+  border-color: #8b87f0 !important;
+}
+
+/* Panel footer (OK button area) */
+html.dark-mode .tqclaw-picker-footer,
+html.dark-mode .ant-picker-footer {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+  background: #1f1f1f !important;
+}
+
+html.dark-mode .tqclaw-picker-today-btn,
+html.dark-mode .ant-picker-today-btn {
+  color: #8b87f0 !important;
+}
+
+/* Divider between two panels in RangePicker */
+html.dark-mode .tqclaw-picker-panel + .tqclaw-picker-panel,
+html.dark-mode .ant-picker-panel + .ant-picker-panel {
+  border-left-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Modal */
+html.dark-mode .tqclaw-modal-content,
+html.dark-mode .ant-modal-content {
+  background: #1f1f1f !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+html.dark-mode .tqclaw-modal-header,
+html.dark-mode .ant-modal-header {
+  background: #1f1f1f !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark-mode .tqclaw-modal-title,
+html.dark-mode .ant-modal-title {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-modal-close,
+html.dark-mode .ant-modal-close {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+html.dark-mode .tqclaw-modal-close:hover,
+html.dark-mode .ant-modal-close:hover {
+  color: rgba(255, 255, 255, 0.85) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark-mode .tqclaw-modal-body,
+html.dark-mode .ant-modal-body {
+  background: #1f1f1f !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-modal-footer,
+html.dark-mode .ant-modal-footer {
+  background: #1f1f1f !important;
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Form labels inside modal */
+html.dark-mode .tqclaw-modal-body .tqclaw-form-item-label > label,
+html.dark-mode .tqclaw-modal-body .ant-form-item-label > label,
+html.dark-mode .ant-modal-body .ant-form-item-label > label {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* Extra description text inside modal */
+html.dark-mode .tqclaw-modal-body .tqclaw-form-item-extra,
+html.dark-mode .ant-modal-body .ant-form-item-extra {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Drawer */
+html.dark-mode .tqclaw-drawer-content,
+html.dark-mode .ant-drawer-content {
+  background: #1f1f1f !important;
+}
+
+html.dark-mode .tqclaw-drawer-header,
+html.dark-mode .ant-drawer-header {
+  background: #1f1f1f !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark-mode .tqclaw-drawer-title,
+html.dark-mode .ant-drawer-title {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-drawer-close,
+html.dark-mode .ant-drawer-close {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+html.dark-mode .tqclaw-drawer-close:hover,
+html.dark-mode .ant-drawer-close:hover {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-drawer-body,
+html.dark-mode .ant-drawer-body {
+  background: #1f1f1f !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-drawer-footer,
+html.dark-mode .ant-drawer-footer {
+  background: #1f1f1f !important;
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Form labels inside drawer */
+html.dark-mode .tqclaw-drawer-body .tqclaw-form-item-label > label,
+html.dark-mode .tqclaw-drawer-body .ant-form-item-label > label,
+html.dark-mode .ant-drawer-body .ant-form-item-label > label {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* Tooltip info icon inside drawer */
+html.dark-mode .tqclaw-drawer-body .anticon-info-circle,
+html.dark-mode .ant-drawer-body .anticon-info-circle {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Slider */
+html.dark-mode .tqclaw-slider-rail,
+html.dark-mode .ant-slider-rail {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html.dark-mode .tqclaw-slider-track,
+html.dark-mode .ant-slider-track {
+  background-color: #615ced !important;
+}
+
+html.dark-mode .tqclaw-slider-handle::after,
+html.dark-mode .ant-slider-handle::after {
+  box-shadow: 0 0 0 2px #615ced !important;
+  background-color: #1f1f1f !important;
+}
+
+html.dark-mode .tqclaw-slider-dot,
+html.dark-mode .ant-slider-dot {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  background-color: #2a2a2a !important;
+}
+
+/* Tooltip popup (slider value) */
+html.dark-mode .tqclaw-tooltip-inner,
+html.dark-mode .ant-tooltip-inner {
+  background-color: #2a2a2a !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode .tqclaw-tooltip-arrow::before,
+html.dark-mode .ant-tooltip-arrow::before {
+  background: #2a2a2a !important;
+}
+
+/* Disabled chat input overlay in dark mode */
+html.dark-mode
+  [class*="chatDisabledOverlay"]
+  :global([class*="chat-anywhere-input"]),
+html.dark-mode [class*="chatDisabledOverlay"] :global([class*="chat-input"]),
+html.dark-mode [class*="chatDisabledOverlay"] :global(textarea),
+html.dark-mode [class*="chatDisabledOverlay"] :global(input[type="text"]) {
+  background-color: #2a2a2a !important;
+}
+
+/* Sender area dark mode */
+html.dark-mode [class*="tqclaw-sender-content"],
+html.dark-mode [class*="sender-content"] {
+  background: #2a2a2a !important;
+}
+
+/* Chat message bubble text in dark mode */
+html.dark-mode [class*="message-item"] [class*="content"],
+html.dark-mode [class*="chat-anywhere"] [class*="message"] p,
+html.dark-mode [class*="chat-anywhere"] [class*="message"] li,
+html.dark-mode [class*="chat-anywhere"] [class*="message"] h1,
+html.dark-mode [class*="chat-anywhere"] [class*="message"] h2,
+html.dark-mode [class*="chat-anywhere"] [class*="message"] h3,
+html.dark-mode [class*="chat-anywhere"] [class*="message"] h4,
+html.dark-mode [class*="chat-anywhere"] [class*="message"] h5,
+html.dark-mode [class*="chat-anywhere"] [class*="message"] h6,
+html.dark-mode [class*="chat-anywhere"] [class*="message"] span,
+html.dark-mode [class*="chat-anywhere"] [class*="message"] blockquote,
+html.dark-mode [class*="chat-anywhere"] [class*="message"] td,
+html.dark-mode [class*="chat-anywhere"] [class*="message"] th {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark-mode [class*="chat-anywhere"] [class*="message"] strong,
+html.dark-mode [class*="chat-anywhere"] [class*="message"] b {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+html.dark-mode [class*="chat-anywhere"] [class*="message"] code {
+  color: rgba(255, 255, 255, 0.85) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark-mode [class*="chat-anywhere"] [class*="message"] a {
+  color: #8b87f5 !important;
+}
+
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+.ant-layout {
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.ant-layout-content {
+  overflow: hidden;
+}
+
+.page-container {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-header {
+  flex: 0 0 auto;
+}
+
+.page-content {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 0 24px 24px 24px;
+}
+
+.table-container {
+  height: 100%;
+  overflow: hidden;
+}
+
+.table-wrapper {
+  height: 100%;
+  overflow: auto;
+}
+
+/* .ant-card {
+  height: 100%;
+} */
+
+.ant-card-body {
+  height: 100%;
+  padding: 0;
+}
+
+/* Welcome avatar: full tall SVG. Class is TQ-Claw-avatar (no "ant"). */
+[class*="chat-anywhere-welcome-default"] [class*="-avatar"],
+[class*="message-list-welcome"] [class*="welcome-default"] [class*="-avatar"] {
+  width: 36px !important;
+  height: 48px !important;
+  min-width: 36px !important;
+  min-height: 48px !important;
+  overflow: visible !important;
+}
+[class*="chat-anywhere-welcome-default"] [class*="-avatar"] > img,
+[class*="message-list-welcome"] [class*="-avatar"] > img {
+  object-fit: contain !important;
+  object-position: center;
+}
+
+/* Move rightHeader to the leftmost position of the right header area (TQ-Claw chat) */
+[class*="chat-anywhere-default-header-right"],
+[class*="default-header-right"],
+[class*="tqclaw-chat-anywhere-default-header-right"],
+.tqclaw-chat-anywhere-default-header-right {
+  display: flex !important;
+  margin: 0 auto 0 0 !important;
+  justify-content: flex-start !important;
+}
+[class*="chat-anywhere-default-header-right"] > *,
+[class*="default-header-right"] > * {
+  margin-right: auto !important;
+  margin-left: 0 !important;
+}

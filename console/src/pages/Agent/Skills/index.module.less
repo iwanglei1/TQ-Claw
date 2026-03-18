@@ -1,0 +1,420 @@
+.skillsPage {
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 4px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.description {
+  margin: 0;
+  color: #999;
+  font-size: 14px;
+}
+
+.loading {
+  text-align: center;
+  padding: 60px;
+}
+
+.loadingText {
+  color: #999;
+}
+
+.importHintBlock {
+  margin-bottom: 12px;
+}
+
+.importHintTitle {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.importHintList {
+  margin: 8px 0;
+  padding: 0 0 0 20px;
+  font-size: 12px;
+  color: #999;
+}
+
+.importUrlInput {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+
+  &:focus {
+    border-color: #615ced;
+  }
+}
+
+.importUrlError {
+  margin-top: 8px;
+  color: #ff4d4f;
+  font-size: 13px;
+}
+
+.importLoadingText {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #666;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.skillCard {
+  border-radius: 16px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+
+  :global(.ant-card-body) {
+    padding: 16px 16px 12px;
+  }
+
+  &.enabledCard {
+    border: 2px solid #615ced !important;
+    box-shadow: rgba(97, 92, 237, 0.2) 0px 8px 24px !important;
+
+    .statusDot.enabled {
+      background-color: #52c41a;
+    }
+
+    .statusText.enabled {
+      color: #52c41a;
+    }
+  }
+
+  &.hover {
+    border: 1px solid #615ced;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  &.normal {
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.skillTitle {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+.fileIcon {
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+
+  &.enabled {
+    background-color: #52c41a;
+  }
+
+  &.disabled {
+    background-color: #d9d9d9;
+  }
+}
+
+.statusText {
+  font-size: 12px;
+
+  &.enabled {
+    color: #52c41a;
+  }
+
+  &.disabled {
+    color: #999;
+  }
+}
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.descriptionSection {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.infoBlock {
+  font-size: 12px;
+  color: #525866;
+  background-color: #f5f6fa;
+  border: 1px solid #eceff6;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.descriptionContent {
+  line-height: 1.45;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  min-height: 64px;
+  max-height: 64px;
+}
+
+.metaStack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infoLabel {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.singleLineValue {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.builtinTag {
+  font-size: 12px;
+  color: #615ced;
+  background: rgba(97, 92, 237, 0.1);
+  border-radius: 4px;
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+
+.customizedTag {
+  font-size: 12px;
+  color: #fa8c16;
+  background: rgba(250, 140, 22, 0.1);
+  border-radius: 4px;
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+
+.pathValue {
+  max-width: 100%;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding-top: 10px;
+  margin-top: 2px;
+  border-top: 1px solid #f1f2f6;
+}
+
+.actionButton {
+  padding: 0;
+}
+
+.deleteButton {
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: #ff4d4f;
+    color: #fff;
+    border-color: #ff4d4f;
+  }
+}
+
+.contentLabel {
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  width: 100%;
+
+  label {
+    width: 100%;
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+}
+
+.markdownToggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggleLabel {
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+}
+
+.markdownViewer {
+  min-height: 200px;
+  max-height: 300px;
+  overflow: auto;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+.copyButton {
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .descriptionContent {
+    min-height: 50px;
+  }
+}
+
+/* ─── Dark mode ─────────────────────────────────────────────────────────────── */
+:global(.dark-mode) {
+  .description {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .loadingText {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  /* Import modal hints */
+  .importHintTitle {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .importHintList {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .importUrlInput {
+    background: #2a2a2a;
+    border-color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.85);
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    &:focus {
+      border-color: #615ced;
+    }
+  }
+
+  .importLoadingText {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  /* Skill card */
+  .skillCard {
+    &.normal {
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    &.hover {
+      border-color: #615ced !important;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4) !important;
+    }
+  }
+
+  .skillTitle {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .statusDot.disabled {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .statusText.disabled {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* Description info block */
+  .infoBlock {
+    color: rgba(255, 255, 255, 0.65);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Source / Path labels */
+  .infoLabel {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* Card footer divider */
+  .cardFooter {
+    border-top-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Toggle label */
+  .toggleLabel {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  /* Markdown viewer */
+  .markdownViewer {
+    border-color: rgba(255, 255, 255, 0.1);
+    background-color: #1f1f1f;
+    color: rgba(255, 255, 255, 0.85);
+  }
+}

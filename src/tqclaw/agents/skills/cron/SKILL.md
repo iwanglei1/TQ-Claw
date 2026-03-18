@@ -1,0 +1,107 @@
+---
+name: cron
+description: 通过 tqclaw 命令管理定时任务 - 创建、查询、暂停、恢复、删除任务
+metadata: { "builtin_skill_version": "1.0", "tqclaw": { "emoji": "⏰" } }
+---
+
+# 定时任务管理
+
+使用 `tqclaw cron` 命令管理定时任务。
+
+## 常用命令
+
+```bash
+# 列出所有任务（默认操作 default agent）
+tqclaw cron list
+
+# 为特定 agent 列出任务
+tqclaw cron list --agent-id abc123
+
+# 查看任务详情
+tqclaw cron get <job_id> --agent-id <agent_id>
+
+# 查看任务状态
+tqclaw cron state <job_id> --agent-id <agent_id>
+
+# 删除任务
+tqclaw cron delete <job_id> --agent-id <agent_id>
+
+# 暂停/恢复任务
+tqclaw cron pause <job_id> --agent-id <agent_id>
+tqclaw cron resume <job_id> --agent-id <agent_id>
+
+# 立即执行一次
+tqclaw cron run <job_id> --agent-id <agent_id>
+```
+
+**注意**：所有命令都支持 `--agent-id` 参数，默认为 `default`。如果需要操作特定 agent 的任务，请指定对应的 agent ID。
+
+## 创建任务
+
+支持两种任务类型：
+- **text**：定时向频道发送固定消息
+- **agent**：定时向 Agent 提问并发送回复到频道
+
+### 快速创建
+
+```bash
+# 每天 9:00 发送文本消息（默认 agent）
+tqclaw cron create \
+  --type text \
+  --name "每日早安" \
+  --cron "0 9 * * *" \
+  --channel imessage \
+  --target-user "CHANGEME" \
+  --target-session "CHANGEME" \
+  --text "早上好！"
+
+# 为特定 agent 创建任务
+tqclaw cron create \
+  --agent-id abc123 \
+  --type agent \
+  --name "检查待办" \
+  --cron "0 */2 * * *" \
+  --channel dingtalk \
+  --target-user "CHANGEME" \
+  --target-session "CHANGEME" \
+  --text "我有什么待办事项？"
+```
+
+### 必填参数
+
+创建任务需要：
+- `--type`：任务类型（text 或 agent）
+- `--name`：任务名称
+- `--cron`：cron 表达式（如 `"0 9 * * *"` 表示每天 9:00）
+- `--channel`：目标频道（console / feishu / dingtalk / discord / qq / telegram / imessage / matrix / mattermost 等）。用户未指定时，使用"当前的channel"的值
+- `--target-user`：用户标识
+- `--target-session`：会话标识
+- `--text`：消息内容（text 类型）或提问内容（agent 类型）
+
+### 可选参数
+
+- `--agent-id`：指定 agent ID（默认：default）。用于多 agent 场景。
+
+### 从 JSON 创建（复杂配置）
+
+```bash
+tqclaw cron create -f job_spec.json
+```
+
+## Cron 表达式示例
+
+```
+0 9 * * *      # 每天 9:00
+0 */2 * * *    # 每 2 小时
+30 8 * * 1-5   # 工作日 8:30
+0 0 * * 0      # 每周日零点
+*/15 * * * *   # 每 15 分钟
+```
+
+## 使用建议
+
+- 缺少参数时，询问用户补充后再创建
+- 暂停/删除/恢复前，用 `tqclaw cron list` 查找 job_id
+- 排查问题时，用 `tqclaw cron state <job_id>` 查看状态
+- 给用户的命令要完整、可直接复制执行
+- 记得指定 `--agent-id` 参数

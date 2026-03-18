@@ -1,0 +1,18 @@
+version: '3.8'
+
+volumes:
+  tqclaw-data:
+    name: tqclaw-data
+  tqclaw-secrets:
+    name: tqclaw-secrets
+
+services:
+  tqclaw:
+    image: agentscope/tqclaw:latest
+    container_name: tqclaw
+    restart: always
+    ports:
+      - "127.0.0.1:8088:8088"
+    volumes:
+      - tqclaw-data:/app/working
+      - tqclaw-secrets:/app/working.secret

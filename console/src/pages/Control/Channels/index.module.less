@@ -1,0 +1,272 @@
+.channelsPage {
+  padding: 24px;
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.title {
+  margin-bottom: 4px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.description {
+  color: #999;
+  font-size: 14px;
+  margin: 0;
+}
+
+.filterTabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+  align-self: center;
+}
+
+.filterTab {
+  padding: 5px 14px;
+  border-radius: 7px;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.18s ease;
+
+  &:hover {
+    color: #333;
+    background: rgba(0, 0, 0, 0.04);
+  }
+}
+
+.filterTabActive {
+  background: #fff;
+  color: #615ced;
+  font-weight: 500;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.loading {
+  text-align: center;
+  padding: 60px;
+}
+
+.loadingText {
+  color: #999;
+}
+
+.channelsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* ---- Channel Card Styles ---- */
+
+.channelCard {
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &.hover {
+    border: 2px solid #615ced;
+    box-shadow: 0 12px 32px rgba(97, 92, 237, 0.3);
+  }
+
+  &.enabled {
+    border: 2px solid #615ced;
+    box-shadow: 0 8px 24px rgba(97, 92, 237, 0.2);
+    transform: scale(1.02);
+  }
+
+  &.normal {
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transform: scale(1);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cardHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cardTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.builtinTag {
+  font-size: 10px;
+  color: #615ced;
+  background: rgba(97, 92, 237, 0.1);
+  border-radius: 4px;
+  padding: 1px 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.customTag {
+  font-size: 10px;
+  color: #fa8c16;
+  background: rgba(250, 140, 22, 0.1);
+  border: none;
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #999;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+  &.enabled {
+    background-color: #52c41a;
+    box-shadow: 0 0 0 2px rgba(82, 196, 26, 0.2);
+  }
+
+  &.disabled {
+    background-color: #d9d9d9;
+    box-shadow: none;
+  }
+}
+
+.channelTag {
+  font-size: 12px;
+  color: #b37feb;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(97, 92, 237, 0.08);
+}
+
+.cardTitle {
+  max-width: 150px;
+  font-size: 16px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.cardDescription {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.cardHint {
+  font-size: 12px;
+  color: #bbb;
+}
+
+/* ---- Channel Drawer Styles ---- */
+
+.drawerTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dingtalkDocBtn {
+  font-size: 12px;
+  padding: 0 8px;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* ─── Dark mode ─────────────────────────────────────────────────────────────── */
+:global(.dark-mode) {
+  .title {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .description {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .filterTabs {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .filterTab {
+    color: rgba(255, 255, 255, 0.45);
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.75);
+      background: rgba(255, 255, 255, 0.06);
+    }
+  }
+
+  .filterTabActive {
+    background: #2a2a2a;
+    color: #8b87f0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .loadingText {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  /* Card background and text */
+  .channelCard {
+    &.normal {
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .cardTitle {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .statusContainer {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .statusDot.disabled {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .cardDescription {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .cardHint {
+    color: rgba(255, 255, 255, 0.2);
+  }
+}
