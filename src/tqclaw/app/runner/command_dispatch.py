@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Command dispatch: run command path without creating TQ-ClawAgent.
+"""Command dispatch: run command path without creating TQClawAgent.
 
 Yields (Msg, last) compatible with query_handler stream.
 """

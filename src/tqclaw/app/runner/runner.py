@@ -24,7 +24,7 @@ from .query_error_dump import write_query_error_dump
 from .session import SafeJSONSession
 from .utils import build_env_context
 from ..channels.schema import DEFAULT_CHANNEL
-from ...agents.react_agent import TQ-ClawAgent
+from ...agents.react_agent import TQClawAgent
 from ...security.tool_guard.models import TOOL_GUARD_DENIED_MARK
 from ...config.config import load_agent_config
 from ...constant import (
@@ -239,7 +239,7 @@ class AgentRunner(Runner):
             # Load agent-specific configuration
             agent_config = load_agent_config(self.agent_id)
 
-            agent = TQ-ClawAgent(
+            agent = TQClawAgent(
                 agent_config=agent_config,
                 env_context=env_context,
                 mcp_clients=mcp_clients,

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """TQ-Claw Agent - Main agent implementation.
 
-This module provides the main TQ-ClawAgent class built on ReActAgent,
+This module provides the main TQClawAgent class built on ReActAgent,
 with integrated tools, skills, and memory management.
 """
 import asyncio
@@ -57,7 +57,7 @@ logger = logging.getLogger(__name__)
 NamesakeStrategy = Literal["override", "skip", "raise", "rename"]
 
 
-class TQ-ClawAgent(ToolGuardMixin, ReActAgent):
+class TQClawAgent(ToolGuardMixin, ReActAgent):
     """TQ-Claw Agent with integrated tools, skills, and memory management.
 
     This agent extends ReActAgent with:
@@ -71,7 +71,7 @@ class TQ-ClawAgent(ToolGuardMixin, ReActAgent):
     MRO note
     ~~~~~~~~
     ``ToolGuardMixin`` overrides ``_acting`` and ``_reasoning`` via
-    Python's MRO: TQ-ClawAgent → ToolGuardMixin → ReActAgent.  If you
+    Python's MRO: TQClawAgent → ToolGuardMixin → ReActAgent.  If you
     add a ``_acting`` or ``_reasoning`` override in this class, you
     **must** call ``super()._acting(...)`` / ``super()._reasoning(...)``
     so the guard interception remains active.
@@ -88,7 +88,7 @@ class TQ-ClawAgent(ToolGuardMixin, ReActAgent):
         namesake_strategy: NamesakeStrategy = "skip",
         workspace_dir: Path | None = None,
     ):
-        """Initialize TQ-ClawAgent.
+        """Initialize TQClawAgent.
 
         Args:
             agent_config: Agent profile configuration containing all settings
