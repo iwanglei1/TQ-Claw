@@ -69,7 +69,8 @@ const CHANNEL_DOC_EN_URLS: Partial<Record<ChannelKey, string>> = {
   mqtt: "https://tqclaw.agentscope.io/docs/channels/?lang=en#MQTT",
   mattermost: "https://tqclaw.agentscope.io/docs/channels/?lang=en#Mattermost",
   matrix: "https://tqclaw.agentscope.io/docs/channels/?lang=en#Matrix",
-  wecom: "https://tqclaw.agentscope.io/docs/channels/?lang=en#WeCom-WeChat-Work",
+  wecom:
+    "https://tqclaw.agentscope.io/docs/channels/?lang=en#WeCom-WeChat-Work",
   xiaoyi:
     "https://developer.huawei.com/consumer/cn/doc/service/openclaw-0000002518410344",
 };

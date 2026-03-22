@@ -437,7 +437,8 @@ html.dark-mode .ant-picker-cell-in-range .ant-picker-cell-inner {
 }
 
 /* Range hover preview */
-html.dark-mode .tqclaw-picker-cell-in-view.tqclaw-picker-cell-range-hover::before,
+html.dark-mode
+  .tqclaw-picker-cell-in-view.tqclaw-picker-cell-range-hover::before,
 html.dark-mode .ant-picker-cell-in-view.ant-picker-cell-range-hover::before,
 html.dark-mode
   .tqclaw-picker-cell-in-view.tqclaw-picker-cell-range-hover-start::after,
