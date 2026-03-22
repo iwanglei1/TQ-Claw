@@ -73,10 +73,10 @@ Starting from **v0.1.0**, TQ-Claw supports **multi-agent workspace**. When you r
 If you don't want to use `~/.tqclaw`, you can override the working directory or
 specific file names:
 
-| Variable                 | Default            | Meaning                                                                                                                                                                                 |
-| ------------------------ | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `TQCLAW_WORKING_DIR`      | `~/.tqclaw`         | Working directory; config, heartbeat, jobs, chats, skills, and memory all live here                                                                                                     |
-| `TQCLAW_SECRET_DIR`       | `~/.tqclaw.secret`  | Secret directory (sibling of working dir); stores `providers.json` (model provider settings, API keys) and `envs.json` (environment variables). In Docker, set to `/app/working.secret` |
+| Variable                  | Default            | Meaning                                                                                                                                                                                 |
+| ------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TQCLAW_WORKING_DIR`      | `~/.tqclaw`        | Working directory; config, heartbeat, jobs, chats, skills, and memory all live here                                                                                                     |
+| `TQCLAW_SECRET_DIR`       | `~/.tqclaw.secret` | Secret directory (sibling of working dir); stores `providers.json` (model provider settings, API keys) and `envs.json` (environment variables). In Docker, set to `/app/working.secret` |
 | `TQCLAW_CONFIG_FILE`      | `config.json`      | Config file name (relative to working dir)                                                                                                                                              |
 | `TQCLAW_HEARTBEAT_FILE`   | `HEARTBEAT.md`     | Heartbeat prompt file name (relative to working dir)                                                                                                                                    |
 | `TQCLAW_JOBS_FILE`        | `jobs.json`        | Cron jobs file name (relative to working dir)                                                                                                                                           |
@@ -219,12 +219,12 @@ Each channel has a common base and channel-specific fields.
 
 **`channels.feishu`** — Feishu / Lark (飞书)
 
-| Field                | Type   | Default          | Description                         |
-| -------------------- | ------ | ---------------- | ----------------------------------- |
-| `app_id`             | string | `""`             | Feishu App ID                       |
-| `app_secret`         | string | `""`             | Feishu App Secret                   |
-| `encrypt_key`        | string | `""`             | Event encryption key (optional)     |
-| `verification_token` | string | `""`             | Event verification token (optional) |
+| Field                | Type   | Default           | Description                         |
+| -------------------- | ------ | ----------------- | ----------------------------------- |
+| `app_id`             | string | `""`              | Feishu App ID                       |
+| `app_secret`         | string | `""`              | Feishu App Secret                   |
+| `encrypt_key`        | string | `""`              | Event encryption key (optional)     |
+| `verification_token` | string | `""`              | Event verification token (optional) |
 | `media_dir`          | string | `~/.tqclaw/media` | Directory for received media files  |
 
 **`channels.qq`** — QQ Bot
@@ -266,12 +266,12 @@ From **v0.1.0**, the `agents` section now contains agent profiles:
 
 Each agent's detailed configuration is stored in `~/.tqclaw/workspaces/{agent_id}/agent.json`:
 
-| Field                         | Type           | Default   | Description                                                             |
-| ----------------------------- | -------------- | --------- | ----------------------------------------------------------------------- |
-| `channels`                    | object         | See below | Channel configurations                                                  |
-| `heartbeat`                   | object \| null | See below | Heartbeat configuration                                                 |
-| `running`                     | object         | See below | Agent runtime behavior configuration                                    |
-| `language`                    | string         | `"zh"`    | Language for agent MD files (`"zh"` / `"en"` / `"ru"`)                  |
+| Field                         | Type           | Default   | Description                                                              |
+| ----------------------------- | -------------- | --------- | ------------------------------------------------------------------------ |
+| `channels`                    | object         | See below | Channel configurations                                                   |
+| `heartbeat`                   | object \| null | See below | Heartbeat configuration                                                  |
+| `running`                     | object         | See below | Agent runtime behavior configuration                                     |
+| `language`                    | string         | `"zh"`    | Language for agent MD files (`"zh"` / `"en"` / `"ru"`)                   |
 | `installed_md_files_language` | string \| null | `null`    | Tracks which language's MD files are installed; managed by `tqclaw init` |
 
 **`agents.running`** — Agent runtime behavior
@@ -319,8 +319,8 @@ You can also change it via the Console (Agent → Configuration).
 
 #### `last_api` — Last used API address
 
-| Field  | Type           | Default | Description                   |
-| ------ | -------------- | ------- | ----------------------------- |
+| Field  | Type           | Default | Description                    |
+| ------ | -------------- | ------- | ------------------------------ |
 | `host` | string \| null | `null`  | Last host used by `tqclaw app` |
 | `port` | int \| null    | `null`  | Last port used by `tqclaw app` |
 
@@ -418,11 +418,11 @@ can read them via `os.environ`.
 
 Skills extend the agent's capabilities. They live in three directories:
 
-| Directory                     | Purpose                                                             |
-| ----------------------------- | ------------------------------------------------------------------- |
-| Built-in (in source code)     | Shipped with TQ-Claw — docx, pdf, pptx, xlsx, news, email, cron, etc. |
-| `~/.tqclaw/customized_skills/` | User-created skills                                                 |
-| `~/.tqclaw/active_skills/`     | Currently active skills (synced from built-in + customized)         |
+| Directory                      | Purpose                                                               |
+| ------------------------------ | --------------------------------------------------------------------- |
+| Built-in (in source code)      | Shipped with TQ-Claw — docx, pdf, pptx, xlsx, news, email, cron, etc. |
+| `~/.tqclaw/customized_skills/` | User-created skills                                                   |
+| `~/.tqclaw/active_skills/`     | Currently active skills (synced from built-in + customized)           |
 
 Each skill is a directory with a `SKILL.md` file (YAML front matter with `name`
 and `description`), and optional `references/` and `scripts/` subdirectories.
@@ -441,8 +441,8 @@ TQ-Claw has persistent cross-conversation memory: it automatically compresses co
 
 Memory files are stored in two locations:
 
-| File / Directory                | Purpose                                                               |
-| ------------------------------- | --------------------------------------------------------------------- |
+| File / Directory                 | Purpose                                                               |
+| -------------------------------- | --------------------------------------------------------------------- |
 | `~/.tqclaw/MEMORY.md`            | Long-lived key information (decisions, preferences, persistent facts) |
 | `~/.tqclaw/memory/YYYY-MM-DD.md` | Daily logs (notes, runtime context, auto-generated summaries)         |
 

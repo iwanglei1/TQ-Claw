@@ -14,7 +14,7 @@
 |                                       | Inter-agent contention resolution                                                                                                                | Planned              |
 |                                       | Multi-agent communication                                                                                                                        | Planned              |
 | **Multimodal**                        | Voice/video calls and real-time interaction                                                                                                      | In Progress          |
-| **Small + Large Model Collaboration** | Train/fine-tune local small LLMs for TQ-Claw workflows and sensitive-data use cases                                                                | In Progress          |
+| **Small + Large Model Collaboration** | Train/fine-tune local small LLMs for TQ-Claw workflows and sensitive-data use cases                                                              | In Progress          |
 |                                       | Multi-model routing. Local LLMs for sensitive data; cloud LLMs for planning and coding; balance of privacy, performance, and capability          | Planned              |
 | **Memory System**                     | Experience distillation & skill extraction                                                                                                       | In Progress          |
 |                                       | Multimodal memory fusion                                                                                                                         | Planned              |

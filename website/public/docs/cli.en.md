@@ -76,13 +76,13 @@ Inspect status, version, and recent logs without starting a conversation. Same
 behavior as sending `/daemon status` etc. in chat (CLI can show local info when
 the app is not running).
 
-| Command                      | Description                                                                               |
-| ---------------------------- | ----------------------------------------------------------------------------------------- |
+| Command                       | Description                                                                               |
+| ----------------------------- | ----------------------------------------------------------------------------------------- |
 | `tqclaw daemon status`        | Status (config, working dir, memory manager)                                              |
 | `tqclaw daemon restart`       | Print instructions (in-chat /daemon restart does in-process reload)                       |
 | `tqclaw daemon reload-config` | Re-read and validate config (channel/MCP changes need /daemon restart or process restart) |
 | `tqclaw daemon version`       | Version and paths                                                                         |
-| `tqclaw daemon logs [-n N]`   | Last N lines of log (default 100; from `tqclaw.log` in working dir)                        |
+| `tqclaw daemon logs [-n N]`   | Last N lines of log (default 100; from `tqclaw.log` in working dir)                       |
 
 **Multi-Agent Support:** All commands support the `--agent-id` parameter (defaults to `default`).
 
@@ -104,8 +104,8 @@ variables power many built-in tools (e.g. web search).
 
 Manage LLM providers and the active model.
 
-| Command                                | What it does                                         |
-| -------------------------------------- | ---------------------------------------------------- |
+| Command                                 | What it does                                         |
+| --------------------------------------- | ---------------------------------------------------- |
 | `tqclaw models list`                    | Show all providers, API key status, and active model |
 | `tqclaw models config`                  | Full interactive setup: API keys → active model      |
 | `tqclaw models config-key [provider]`   | Configure a single provider's API key                |
@@ -193,8 +193,8 @@ tqclaw models set-llm          # Switch to a different Ollama model
 
 Manage environment variables used by tools and skills at runtime.
 
-| Command                   | What it does                  |
-| ------------------------- | ----------------------------- |
+| Command                    | What it does                  |
+| -------------------------- | ----------------------------- |
 | `tqclaw env list`          | List all configured variables |
 | `tqclaw env set KEY VALUE` | Set or update a variable      |
 | `tqclaw env delete KEY`    | Delete a variable             |
@@ -222,8 +222,8 @@ Manage channel configuration (iMessage, Discord, DingTalk, Feishu, QQ,
 Console, etc.). **Note:** Use `config` for interactive setup (no `configure`
 subcommand); use `remove` to uninstall custom channels (no `uninstall`).
 
-| Command                        | What it does                                                                                                      |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| Command                         | What it does                                                                                                      |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | `tqclaw channels list`          | Show all channels and their status (secrets masked)                                                               |
 | `tqclaw channels install <key>` | Install a channel into `custom_channels/`: create stub or use `--path`/`--url`                                    |
 | `tqclaw channels add <key>`     | Install and add to config; built-in channels only get config entry; supports `--path`/`--url`                     |
@@ -266,8 +266,8 @@ ask TQ-Claw and send the reply". **Requires `tqclaw app` to be running.**
 
 ### tqclaw cron
 
-| Command                      | What it does                                  |
-| ---------------------------- | --------------------------------------------- |
+| Command                       | What it does                                  |
+| ----------------------------- | --------------------------------------------- |
 | `tqclaw cron list`            | List all jobs                                 |
 | `tqclaw cron get <job_id>`    | Show a job's spec                             |
 | `tqclaw cron state <job_id>`  | Show runtime state (next run, last run, etc.) |
@@ -351,8 +351,8 @@ Manage chat sessions via the API. **Requires `tqclaw app` to be running.**
 
 ### tqclaw chats
 
-| Command                                | What it does                                                  |
-| -------------------------------------- | ------------------------------------------------------------- |
+| Command                                 | What it does                                                  |
+| --------------------------------------- | ------------------------------------------------------------- |
 | `tqclaw chats list`                     | List all sessions (supports `--user-id`, `--channel` filters) |
 | `tqclaw chats get <id>`                 | View a session's details and message history                  |
 | `tqclaw chats create ...`               | Create a new session                                          |
@@ -380,8 +380,8 @@ Extend TQ-Claw's capabilities with skills (PDF reading, web search, etc.).
 
 ### tqclaw skills
 
-| Command               | What it does                                      |
-| --------------------- | ------------------------------------------------- |
+| Command                | What it does                                      |
+| ---------------------- | ------------------------------------------------- |
 | `tqclaw skills list`   | Show all skills and their enabled/disabled status |
 | `tqclaw skills config` | Interactively enable/disable skills (checkbox UI) |
 
@@ -419,11 +419,11 @@ tqclaw clean --dry-run   # Only list what would be removed
 
 Every `tqclaw` subcommand inherits:
 
-| Option          | Default     | Description                                    |
-| --------------- | ----------- | ---------------------------------------------- |
+| Option          | Default     | Description                                     |
+| --------------- | ----------- | ----------------------------------------------- |
 | `--host`        | `127.0.0.1` | API host (auto-detected from last `tqclaw app`) |
 | `--port`        | `8088`      | API port (auto-detected from last `tqclaw app`) |
-| `-h` / `--help` |             | Show help message                              |
+| `-h` / `--help` |             | Show help message                               |
 
 If the server runs on a non-default address, pass these globally:
 
@@ -452,8 +452,8 @@ All config and data live in `~/.tqclaw` by default:
         └── ...
 ```
 
-| Variable            | Description                         |
-| ------------------- | ----------------------------------- |
+| Variable             | Description                         |
+| -------------------- | ----------------------------------- |
 | `TQCLAW_WORKING_DIR` | Override the working directory path |
 | `TQCLAW_CONFIG_FILE` | Override the config file path       |
 
@@ -463,8 +463,8 @@ See [Config & Working Directory](./config) and [Multi-Agent Workspace](./multi-a
 
 ## Command overview
 
-| Command          | Subcommands                                                                                                                            | Requires server? |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- | :--------------: |
+| Command           | Subcommands                                                                                                                            | Requires server? |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- | :--------------: |
 | `tqclaw init`     | —                                                                                                                                      |        No        |
 | `tqclaw app`      | —                                                                                                                                      |  — (starts it)   |
 | `tqclaw models`   | `list` · `config` · `config-key` · `set-llm` · `download` · `local` · `remove-local` · `ollama-pull` · `ollama-list` · `ollama-remove` |        No        |
